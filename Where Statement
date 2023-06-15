@@ -1,0 +1,43 @@
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE FirstName = 'Cate'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE FirstName <> 'Cate'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Age < 30
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Age > 30
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Age > 30 AND Gender = 'Female'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Age > 30 OR Gender = 'Female'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE LastName LIKE 'S%'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE LastName LIKE '%S%'
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Gender IS NULL
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE Gender IS NOT NULL
+
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+WHERE FirstName IN ('Cate', 'Miranda', 'Jean')
