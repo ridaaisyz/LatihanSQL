@@ -1,1 +1,26 @@
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
 
+SELECT TOP 5 *
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT DISTINCT(age)
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT COUNT ('FirstName')
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT COUNT ('FirstName') AS FirstNameCount
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT *
+FROM Latihasql.dbo.EmployeeSalary
+
+SELECT MAX(Salary)
+FROM Latihasql.dbo.EmployeeSalary
+
+SELECT MIN(Salary)
+FROM Latihasql.dbo.EmployeeSalary
+
+SELECT AVG(Salary)
+FROM Latihasql.dbo.EmployeeSalary
