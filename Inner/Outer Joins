@@ -1,0 +1,48 @@
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+FULL OUTER JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+LEFT OUTER JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT *
+FROM Latihasql.dbo.EmployeeDemographics
+LEFT OUTER JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT EmployeeDemographics.EmployeeID, FirstName, LastName, JobTitle, Salary
+FROM Latihasql.dbo.EmployeeDemographics
+JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT EmployeeSalary.EmployeeID, FirstName, LastName, JobTitle, Salary
+FROM Latihasql.dbo.EmployeeDemographics
+RIGHT OUTER JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT EmployeeDemographics.EmployeeID, FirstName, LastName, JobTitle, Salary
+FROM Latihasql.dbo.EmployeeDemographics
+LEFT OUTER JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+  
+SELECT EmployeeDemographics.EmployeeID, FirstName, LastName,Salary
+FROM Latihasql.dbo.EmployeeDemographics
+JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+WHERE FirstName <> 'Michael'
+ORDER BY Salary DESC
+
+SELECT JobTitle, avg(salary)
+FROM Latihasql.dbo.EmployeeDemographics
+JOIN Latihasql.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+WHERE JobTitle = 'salesman'
+GROUP BY JobTitle
