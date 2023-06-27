@@ -1,0 +1,5 @@
+-- change column position
+
+ALTER TABLE employee
+MODIFY email VARCHAR (100)
+AFTER last_name
