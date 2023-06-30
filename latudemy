@@ -119,3 +119,68 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         SELECT count (title)
         FROM film
         WHERE length <=50
+
+--The actual amount of payment between 5 and 8 dollar
+        SELECT *
+        FROM payment
+        WHERE amount BETWEEN 5 and 8;
+
+--How many the amount of payment between 5 and 8 dollar
+        SELECT COUNT (amount)
+        FROM payment
+        WHERE amount BETWEEN 5 and 8;
+
+--Search actor name by first name (Anne, Carmen, Mena, Penelope)
+        SELECT *
+        FROM actor
+        WHERE first_name IN ('Anne', 'Carmen', 'Mena', 'Penelope');
+
+--How many actor with the first name (Anne, Carmen, Mena, Penelope)
+        SELECT COUNT (first_name)
+        FROM actor
+        WHERE first_name IN ('Anne', 'Carmen', 'Mena', 'Penelope');
+
+--Find all the the city that start with the letter B
+        SELECT *
+        FROM city
+        WHERE city LIKE 'B%'
+
+--Find all the the city that NOT start with the letter B
+        SELECT *
+        FROM city
+        WHERE city NOT LIKE 'B%'
+
+--CHALLENGE
+--How many payment transaction were greater than 5 dollar?
+        SELECT COUNT (amount)
+        FROM payment
+        WHERE amount > 5.00;
+
+--CHALLENGE
+--How many actor have a first name with the letter P?
+        SELECT COUNT (actor)
+        FROM actor
+        WHERE first_name LIKE 'P%';
+
+--CHALLENGE
+--How many unique disrict are our customers from
+        SELECT COUNT (DISTINCT (district))
+        FROM address
+
+--CHALLENGE
+--Retrive the list of names for those distinct district from the previous question
+        SELECT DISTINCT district
+        FROM address
+
+--CHALLENGE
+--How many films have a rating of R and a replecement cost between 5 and 15 dollar
+        SELECT COUNT (*)
+        FROM film
+        WHERE rating = 'R' AND replacement_cost BETWEEN 5 AND 15;
+
+--CHALLENGE
+--How many films have the word Truman somewhere in the title
+        SELECT COUNT (title)
+        FROM film
+        WHERE title LIKE '%Truman%';
+
