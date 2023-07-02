@@ -376,3 +376,32 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         WHERE "first_name" LIKE 'E%' AND address_id < 500
         ORDER BY customer_id DESC
         LIMIT 1;
+
+--Change the column ouput using AS statement--
+        SELECT COUNT (amount) AS num_transaction
+        FROM payment;
+
+        SELECT customer_id, SUM(amount) AS total_spent
+        FROM payment
+        GROUP BY customer_id;
+
+        SELECT customer_id, SUM(amount) AS total_spent
+        FROM payment
+        GROUP BY customer_id
+        HAVING SUM(amount) > 100
+
+--We want to search customer email associted with specific payment--
+        SELECT payment_id, payment.customer_id,email
+        FROM payment
+        INNER JOIN customer
+        ON payment.customer_id = customer.customer_id;
+
+--new privacy rule are being implemented and we want to make sure we dont have any payment information thats not attached to customers or that we dont have customers informations taht isnt atttach to payment--
+--we want to make sure all the payments we have is associated with the current customers and all customers we have associated with some historical payment--
+        SELECT *
+        FROM customer
+        FULL OUTER JOIN payment
+        ON customer.customer_id = payment.customer_id
+        WHERE customer.customer_id IS null
+        OR payment.payment_id IS null
+
