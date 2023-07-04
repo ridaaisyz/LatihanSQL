@@ -396,12 +396,41 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         INNER JOIN customer
         ON payment.customer_id = customer.customer_id;
 
---new privacy rule are being implemented and we want to make sure we dont have any payment information thats not attached to customers or that we dont have customers informations taht isnt atttach to payment--
---we want to make sure all the payments we have is associated with the current customers and all customers we have associated with some historical payment--
+--New privacy rule are being implemented and we want to make sure we dont have any payment information thats not attached to customers or that we dont have customers informations taht isnt atttach to payment--
+--We want to make sure all the payments we have is associated with the current customers and all customers we have associated with some historical payment--
         SELECT *
         FROM customer
         FULL OUTER JOIN payment
         ON customer.customer_id = payment.customer_id
         WHERE customer.customer_id IS null
         OR payment.payment_id IS null
+
+--Short film id and title that is not in the inventory table using LEFT OUTER JOIN--
+        SELECT film.film_id, title, inventory_id
+        FROM film
+        LEFT JOIN inventory
+        ON inventory.film_id = film.film_id
+        WHERE inventory.film_id IS null;
+
+--CHALLENGE--
+--California sales tax laws have changed and we need to alert our customers to this through email--
+--What are emails of customers who lived in california?--
+        SELECT district, email 
+        FROM address
+        INNER JOIN customer
+        ON address.address_id = customer.address_id
+        WHERE district = 'California'
+
+--CHALLENGE--
+--Customer walking and is the huge fan of the actor "Nick Wahlberg" and wants to know which movies he is in.--
+--Get a list of all movies "Nick Whalberg" has been in (pake MULTIPLE JOIN)--
+        SELECT title, first_name, last_name
+        FROM film_actor
+        INNER JOIN actor
+        ON film_actor.actor_id = actor.actor_id
+        INNER JOIN film
+        ON film_actor.film_id = film.film_id
+        WHERE first_name ='Nick' AND 
+        last_name = 'Wahlberg'
+
 
