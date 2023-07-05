@@ -433,4 +433,16 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         WHERE first_name ='Nick' AND 
         last_name = 'Wahlberg'
 
+--Show time zone in your computer--
+        SHOW TIMEZONE
+
+--Show timestamp and timezone right now--
+        SELECT NOW()
+
+----Show timestamp and timezone as a STRING--
+        SELECT TIMEOFDAY()
+
+--Show current time--
+        SELECT CURRENT_TIME
+        
 
