@@ -444,5 +444,52 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
 
 --Show current time--
         SELECT CURRENT_TIME
-        
 
+--Company whant to update plankton data by adding hourly pay and hire date--
+        UPDATE employees
+        SET hire_date = '2023-06-07',
+            hourly_pay = '10.25'
+        WHERE employee_id = 6;
+
+--The company want to insert new product but the product name cannot be the same--
+        CREATE TABLE produtcs (
+        	product_ID INT
+        	product_name VARCHAR (25) UNIQUE
+        	price DECIMAL (4,2)
+        
+        );
+
+--Company want to know the year on the payment date--
+        SELECT EXTRACT (YEAR FROM payment_date)
+        FROM payment;
+        
+--Company want to know the month on the payment date--
+        SELECT EXTRACT (MONTH FROM payment_date)
+        FROM payment;
+
+--the manager want to know how old the payment date from the current date--
+        SELECT AGE (payment_date)
+        FROM payment;
+
+--The manager want to know the date on the payment date with his specifict requirement--
+        SELECT TO_CHAR (payment_date, 'MM-DD-YY')
+        FROM payment;
+
+        SELECT TO_CHAR (payment_date, 'MONTH-YYYY')
+        FROM payment;
+
+--CHALLENGE--
+--During wich month did the payments occur?--
+--Format your answer to return back to the full month name--
+        SELECT DISTINCT (TO_CHAR (payment_date, 'MONTH'))
+        FROM payment;
+
+--CHALLENGE--
+-- How many payments occur on mondays--
+         SELECT COUNT (*) 
+         FROM payment
+         WHERE (TO_CHAR (payment_date, 'FMDay')) = 'Monday'
+
+         SELECT COUNT (*)
+         FROM payment
+         WHERE EXTRACT (dow FROM payment_date) = 1
