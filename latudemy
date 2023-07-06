@@ -566,4 +566,12 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         ON f1.film_id != f2.film_id
         AND f1.length = f2.length;
 
+--Find all the rows having emp_id as even number--
+        SELECT *
+        FROM dept_manager
+        WHERE MOD(emp_id, 2) = 0;
 
+----Find all the rows having emp_id as odd number--
+        SELECT *
+        FROM dept_manager
+        WHERE MOD(emp_id, 2) <> 0;
