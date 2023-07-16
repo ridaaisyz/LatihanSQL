@@ -3,3 +3,10 @@
         FROM payment
         GROUP BY customer_id
         HAVING SUM(amount) > 100.00;
+
+        SELECT jobtitle, COUNT (jobtitle)
+        FROM employeedemographics
+        JOIN employeesalary
+        ON employeedemographics.emp_id = employeesalary.emp_id
+        GROUP BY jobtitle
+        HAVING COUNT (jobtitle) > 1
