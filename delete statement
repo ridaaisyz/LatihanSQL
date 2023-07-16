@@ -1,1 +1,7 @@
+DELET FROM employeedemographics
+WHERE emp_id = 1001
 
+--sebelum delete check dulu pake select statement--
+SELECT *
+FROM employeedemographics
+WHERE emp_id = 1001
