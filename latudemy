@@ -683,5 +683,11 @@ WHERE rental_rate > 4 AND replacement_cost >=15.99 AND rating = 'PG';
         WHERE cd.members.firstname = 'David'
         AND cd.members.surname = 'Farrell'
 
-
+--Kevin malone make a mistake when looking at the AVG salary for salesman, then angela try to fix kevin malone problem--
+	SELECT jobtitle, ROUND (AVG (salary),0)
+	FROM employeedemographics
+	INNER JOIN employeesalary
+	ON employeedemographics.emp_id = employeesalary.emp_id
+	WHERE jobtitle = 'Salesman'
+	GROUP BY jobtitle
 
