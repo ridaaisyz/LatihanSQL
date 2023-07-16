@@ -9,3 +9,13 @@ WHERE age IS NOT NULL
 ORDER BY AGE
 
 --the company has a great year, tmichael scott gives yearly raise to every single employee but not all employee will have the same raise--
+SELECT firstname, lastname, jobtitle, salary,
+CASE
+	WHEN jobtitle = 'Salesman' THEN salary + (salary * .10)
+	WHEN jobtitle = 'Accountant' THEN salary + (salary * .05)
+	WHEN jobtitle = 'HR' THEN salary + (salary * .01)
+	ELSE salary + (salary * .03)
+END AS SalaryAfterRaise											 
+FROM employeedemographics
+JOIN employeesalary
+ON employeedemographics.emp_id = employeesalary.emp_id
