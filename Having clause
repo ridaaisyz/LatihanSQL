@@ -10,3 +10,11 @@
         ON employeedemographics.emp_id = employeesalary.emp_id
         GROUP BY jobtitle
         HAVING COUNT (jobtitle) > 1
+
+        SELECT jobtitle, ROUND (AVG (salary),2)
+        FROM employeedemographics
+        JOIN employeesalary
+        ON employeedemographics.emp_id = employeesalary.emp_id
+        GROUP BY jobtitle
+        HAVING AVG (salary) > 45000
+        ORDER BY AVG (salary)
