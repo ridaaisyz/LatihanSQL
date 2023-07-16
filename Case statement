@@ -1,0 +1,11 @@
+SELECT firstname, lastname, age,
+CASE
+	WHEN age > 30 THEN 'Old'
+	WHEN age BETWEEN 27 AND 30 THEN 'Young'
+	ELSE 'Teenager'
+END
+FROM employeedemographics
+WHERE age IS NOT NULL
+ORDER BY AGE
+
+--the company has a great year, tmichael scott gives yearly raise to every single employee but not all employee will have the same raise--
