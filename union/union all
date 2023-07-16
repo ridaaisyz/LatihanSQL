@@ -1,0 +1,15 @@
+--union--
+SELECT *
+FROM employeedemographics
+UNION
+SELECT *
+FROM warehouseemployeedemographics
+ORDER BY emp_id
+
+--union all--
+SELECT *
+FROM employeedemographics
+UNION ALL
+SELECT *
+FROM warehouseemployeedemographics
+ORDER BY emp_id
