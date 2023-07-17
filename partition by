@@ -1,0 +1,5 @@
+SELECT firstname, lastname, gender, salary,
+	COUNT (gender) OVER (PARTITION BY gender) AS total_gender
+FROM employeedemographics AS demo
+JOIN employeesalary AS sal
+on demo.emp_id = sal.emp_id
