@@ -1,1 +1,62 @@
+CREATE TABLE employee_errors
+(emp_id VARCHAR (50),
+ first_name VARCHAR (50),
+ last_name VARCHAR (50)
+)
 
+ALTER TABLE employee_errors
+RENAME COLUMN first_name TO firstname
+
+ALTER TABLE employee_errors
+RENAME COLUMN last_name TO lastname
+
+INSERT INTO employee_errors
+VALUES
+('1001  ', 'Mirandaa', 'Pirestly')
+,('  1002', 'Andrea', 'Sachs')
+,('1005', 'TOby', 'Flenderson - Fired')
+
+SELECT *
+FROM employee_errors
+
+--TRIM, LTRIM, RTIM--
+SELECT emp_id, TRIM (emp_id) AS IDTRIM
+FROM employee_errors
+
+SELECT emp_id, LTRIM (emp_id) AS IDTRIM
+FROM employee_errors
+
+SELECT emp_id, RTRIM (emp_id) AS IDTRIM
+FROM employee_errors
+
+--REPLACE--
+SELECT last_name, REPLACE (last_name,'- Fired', '  ') AS last_namefixed
+FROM employee_errors
+
+SELECT last_name, REPLACE (last_name, 'Pirestly', 'Priestly') AS last_namefixed
+FROM employee_errors
+
+SELECT first_name, REPLACE (first_name, 'Mirandaa', 'Miranda') AS last_namefixed
+FROM employee_errors
+
+SELECT first_name, REPLACE (first_name, 'TOby', 'Toby') AS last_namefixed
+FROM employee_errors
+
+--SUBSTRING--
+SELECT first_name, SUBSTRING (first_name,1,5)
+FROM employee_errors
+
+SELECT first_name, SUBSTRING (first_name,3,5)
+FROM employee_errors
+
+SELECT emp_err.firstname, SUBSTRING (emp_err.firstname,1,3) = emp_demo.firstname,SUBSTRING(emp_demo.firstname,1,3)
+FROM employee_errors AS emp_err
+JOIN employeedemographics AS emp_demo
+	ON SUBSTRING (emp_err.firstname,1,3) = SUBSTRING(emp_demo.firstname,1,3)
+
+--UPPER AND LOWER--
+SELECT firstname, LOWER (firstname)
+FROM employee_errors
+
+SELECT firstname, UPPER (firstname)
+FROM employee_errors
