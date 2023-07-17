@@ -1,0 +1,34 @@
+CREATE TEMP TABLE temp_employee (
+emp_id INT,
+jobtitle VARCHAR (100),
+salary INT
+);
+
+SELECT *
+FROM temp_employee;
+
+INSERT INTO temp_employee
+VALUES
+('1001', 'HR', '45000');
+
+INSERT INTO temp_employee
+SELECT *
+FROM employeesalary
+
+CREATE TEMPORARY TABLE employee_two
+(JobTitle VARCHAR (50),
+ EmployeePerJob INT,
+ Avg_age INT,
+ Avg_salary INT
+)
+
+INSERT INTO employee_two
+SELECT jobtitle, COUNT(jobtitle), AVG(age), AVG(salary)
+FROM employeedemographics AS emp_demo
+JOIN employeesalary AS emp_sal
+ON emp_demo.emp_id = emp_sal.emp_id
+GROUP BY jobtitle;
+					 
+SELECT *
+FROM employee_two;
+					 
