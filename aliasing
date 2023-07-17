@@ -14,3 +14,10 @@ SELECT demo.emp_id, sal.salary
 FROM employeedemographics AS demo
 JOIN employeesalary AS sal
 ON demo.emp_id = sal.emp_id
+
+SELECT Demo.emp_id, Demo.firstname, Demo.lastname, Sal.jobtitle, Sal.salary, Warehouse.age
+FROM employeedemographics AS Demo
+LEFT JOIN employeesalary AS Sal
+ON Demo.emp_id = Sal.emp_id 
+LEFT JOIN warehouseemployeedemographics AS Warehouse
+ON Demo.emp_id = Warehouse.emp_id
