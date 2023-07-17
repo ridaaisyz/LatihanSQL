@@ -1,0 +1,16 @@
+SELECT firstname AS fname
+FROM employeedemographics
+
+SELECT firstname + ' ' + LastName AS full_name
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT AVG(age) AS AvgAge
+FROM Latihasql.dbo.EmployeeDemographics
+
+SELECT demo.emp_id
+FROM employeedemographics AS demo
+
+SELECT demo.emp_id, sal.salary
+FROM employeedemographics AS demo
+JOIN employeesalary AS sal
+ON demo.emp_id = sal.emp_id
