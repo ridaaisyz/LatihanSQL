@@ -1,0 +1,11 @@
+WITH CTE_employee as 
+(SELECT firstname, lastname, gender, salary,
+	COUNT (gender) OVER (PARTITION BY gender) AS total_gender,
+	AVG (salary) OVER (PARTITION BY gender) AS avg_salary
+	FROM employeedemographics AS emp_demo
+	JOIN employeesalary AS emp_sal
+	ON emp_demo.emp_id = emp_sal.emp_id
+	WHERE salary > '45000'
+)
+SELECT *
+FROM CTE_employee
