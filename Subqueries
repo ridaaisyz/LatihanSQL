@@ -1,0 +1,39 @@
+/*
+
+SUBQUERIES 
+
+*/
+
+SELECT *
+FROM employeesalary
+
+--subquery in SELECT
+
+SELECT emp_id, salary, (SELECT ROUND(AVG(salary),2) FROM employeesalary) AS AllAvgSalary
+FROM employeesalary
+
+--How to do it in partition by
+
+SELECT emp_id, salary, ROUND(AVG(salary) OVER (),0) AS AllAvgSalary
+FROM employeesalary
+
+--Why group by doesnt work
+SELECT emp_id, salary, AVG(salary) AS AllAvgSalary
+FROM employeesalary
+GROUP BY emp_id, salary
+ORDER BY 1,2
+
+--Subquery in FROM
+
+SELECT a.emp_id, AllAvgSalary
+FROM (SELECT emp_id, salary, ROUND(AVG(salary) OVER (),0) AS AllAvgSalary
+	  FROM employeesalary) AS a
+
+--Subquery in WHERE
+--retur if the age over 30
+
+SELECT emp_id, jobtitle, salary
+FROM employeesalary
+WHERE emp_id in ( SELECT emp_id 
+				 FROM employeedemographics
+				 WHERE age > 30)
